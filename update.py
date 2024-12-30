@@ -1,4 +1,5 @@
 import requests
+from datetime import datetime, timezone
 
 emoji_data = requests.get("https://api.github.com/emojis", headers={
     "Accept": "application/vnd.github+json",
@@ -6,7 +7,7 @@ emoji_data = requests.get("https://api.github.com/emojis", headers={
   }
 )
 
-formatted_data = [ "||||", "|---|---|---|" ]
+formatted_data = [ f"Latest update: `{datetime.now(timezone.utc).strftime("%d/%m/%Y %H:%M:%S")} UTC`", "||||", "|---|---|---|" ]
 line_components = []
 for key, value in emoji_data.json().items():
     line_components.append(f":{key}: `{key}`|")
