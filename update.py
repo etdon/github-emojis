@@ -20,5 +20,5 @@ if (len(line_components) > 0):
     line_components.clear()
 
 readme_file = open("README.md", "w+")
-readme_file.writelines(formatted_data)
+readme_file.write('\n'.join(formatted_data))
 readme_file.close()
